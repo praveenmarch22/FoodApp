@@ -1,22 +1,23 @@
 import React from "react";
 import  ReactDOM from "react-dom/client";
 
+//  React Functional components
+const Title=() => {
+    return (
+    [<h1>namaste using component</h1>,
+     <h2>namste react</h2>]
 
-const parent=React.createElement(
-    "div",
-    {id:"parent"},
-[
-    React.createElement("div",{id:"child1"},
-[
-    React.createElement("h1",{},"it is a h1 tag"),
-    React.createElement("h1",{},"this is a h2 tag")
-]),
-React.createElement("div",{id:"child2"},
-[
-    React.createElement("h1",{},"it is a h1 tag"),
-    React.createElement("h1",{},"this is a h2 tag")
-])
-]);
+)};
+const HeadingComponent=()=>(
+    <div>
+        <Title/>
+         <h1 className="heading">namste react using jsx </h1>
+    </div>
+   
+);
+
 
 const root=ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+root.render(<HeadingComponent/>);
+
+
