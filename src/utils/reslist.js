@@ -1,51 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const Header = () => {
-  return (
-    <div className="container">
-      <div className="logo-container">
-        <img
-          className="img"
-          alt="logo"
-          src="https://mir-s3-cdn-cf.behance.net/project_modules/hd/25539c29532269.55f7d6a0a8c71.jpg"
-        />
-      </div>
-      <div className="nav-bar">
-        <ul>
-          <li>Home</li>
-          <li>About us</li>
-          <li>Contact us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const Restrauntcard = (props) => {
-  const { resData } = props;
-
-  const { cloudinaryImageId, name, cuisines, avgRating, deliveryTime } =
-    resData?.info;
-
-  return (
-    <div className="res-card">
-      <img
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
-        className="res-image"
-      />
-      <h4>{name}</h4>
-      <h5>{cuisines.join(",")}</h5>
-      <h5>{avgRating}</h5>
-      <h5>{deliveryTime}</h5>
-    </div>
-  );
-};
-
 const resList = [
   {
     info: {
@@ -1810,27 +1762,4 @@ const resList = [
   },
 ];
 
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search">search</div>
-      <div className="res-container">
-        {resList.map((restraunt) => (
-          <Restrauntcard key={restraunt.info.id} resData={restraunt} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const AppLayout = () => {
-  return (
-    <div className="app">
-      <Header />
-      <Body />
-    </div>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+export default resList;
