@@ -11,7 +11,7 @@ const Restrauntcard = (props) => {
       <img src={CDN_URL + cloudinaryImageId} className="res-image" />
       <h4>{name}</h4>
       <h5>{cuisines.join(",")}</h5>
-      <h5>{avgRating}</h5>
+      <h5>{avgRating} stars </h5>
       <h5>{deliveryTime}</h5>
     </div>
   );
