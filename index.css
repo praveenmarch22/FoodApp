@@ -34,6 +34,7 @@
 .res-container {
   display: flex;
   flex-wrap: wrap;
+  padding-left: 90px;
 }
 
 .search {
@@ -42,4 +43,37 @@
 
 .filter-btn {
   margin: 15px;
+}
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.button-top {
+  width: 45px;
+  height: 20px;
+  background-color: #f0f0f0;
+  margin: 5px;
+}
+
+.shimmer-cad {
+  height: 400px;
+  width: 200px;
+  margin: 5px;
+  background: linear-gradient(to right, #f6f7f8 4%, #e8e8e8 25%, #f6f7f8 36%);
+  background-size: 1000px 100%;
+  animation: shimmerAnimation 1.5s infinite linear;
+}
+.login {
+  padding: 0px 20px;
+  cursor: pointer;
+}
+.filter {
+  display: flex;
+}
+
+@keyframes shimmerAnimation {
+  100% {
+    background-position: 1000px 0;
+  }
 }

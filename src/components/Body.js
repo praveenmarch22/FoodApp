@@ -1,37 +1,73 @@
-import { useState } from "react";
-import Restrauntcard from "../Restrauntcard";
-import resList from "../utils/reslist";
+import { useEffect, useState } from "react";
+import Restrauntcard from "./Restrauntcard";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
-  const arr = useState(resList);
-  const [restrauntList, setRestrauntList] = arr;
+  const [restrauntList, setRestrauntList] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
-  return (
+  const [filteredRestraunt, setFilteredRestraunt] = useState([]);
+
+  useEffect(() => {
+    fetchdata();
+  }, []);
+
+  const fetchdata = async () => {
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9180626&lng=77.6156642&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+
+    const json = await data.json();
+    console.log(json);
+    setRestrauntList(
+      json.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setFilteredRestraunt(
+      json.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  };
+  console.log("body rendered..");
+
+  return restrauntList.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
-        <button
-          className="filter-all"
-          onClick={() => {
-            setRestrauntList(resList);
-          }}
-        >
-          All
-        </button>
+        <div className="search">
+          <input
+            type="text"
+            placeholder="search.."
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => {
+              const filteredList = restrauntList.filter((res) =>
+                res.info?.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+              setFilteredRestraunt(filteredList);
+            }}
+          >
+            search
+          </button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
             const newrestrauntList = restrauntList.filter(
               (res) => res.info.avgRating > 4.1
             );
-            setRestrauntList(newrestrauntList);
+            setFilteredRestraunt(newrestrauntList);
           }}
         >
           Top Rated
         </button>
       </div>
       <div className="res-container">
-        {restrauntList.map((restraunt) => (
-          <Restrauntcard key={restraunt.id} resData={restraunt} />
+        {filteredRestraunt.map((restraunt) => (
+          <Restrauntcard key={restraunt.info.id} resData={restraunt} />
         ))}
       </div>
     </div>
