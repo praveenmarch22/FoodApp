@@ -18,7 +18,7 @@ const Body = () => {
     );
 
     const json = await data.json();
-    console.log(json);
+
     setRestrauntList(
       json.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
@@ -26,7 +26,6 @@ const Body = () => {
       json.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
-  console.log("body rendered..");
 
   return restrauntList.length === 0 ? (
     <Shimmer />
