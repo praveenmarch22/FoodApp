@@ -6,7 +6,14 @@ class About extends React.Component {
   constructor(props) {
     super(props);
   }
-  componentDidMount() {}
+  componentDidMount() {
+    this.inter = setInterval(() => {
+      console.log("setinterval is called");
+    }, 100);
+  }
+  componentWillUnmount() {
+    clearInterval(this.inter);
+  }
 
   render() {
     return (
