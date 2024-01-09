@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Restrauntcard from "./Restrauntcard";
+import Restrauntcard, { withPromotedLabel } from "./Restrauntcard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -9,6 +9,8 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   const [filteredRestraunt, setFilteredRestraunt] = useState([]);
+
+  const RestrauntPromoted = withPromotedLabel(Restrauntcard);
 
   useEffect(() => {
     fetchdata();
@@ -76,7 +78,11 @@ const Body = () => {
       <div className="flex flex-wrap pl-[100px]">
         {filteredRestraunt.map((restraunt) => (
           <Link to={"/restraunts/" + restraunt.info.id} key={restraunt.info.id}>
-            <Restrauntcard resData={restraunt} />
+            {restraunt.info.avgRating > 4.4 ? (
+              <RestrauntPromoted resData={restraunt} />
+            ) : (
+              <Restrauntcard resData={restraunt} />
+            )}
           </Link>
         ))}
       </div>
