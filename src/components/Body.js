@@ -38,10 +38,11 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="flex m-5 pl-[500px]">
+        <div className="px-4">
           <input
             type="text"
+            className="border-black border-[2px] rounded-lg"
             placeholder="search.."
             value={searchText}
             onChange={(e) => {
@@ -49,6 +50,7 @@ const Body = () => {
             }}
           />
           <button
+            className="px-4"
             onClick={() => {
               const filteredList = restrauntList.filter((res) =>
                 res.info?.name.toLowerCase().includes(searchText.toLowerCase())
@@ -60,7 +62,7 @@ const Body = () => {
           </button>
         </div>
         <button
-          className="filter-btn"
+          className="px-4 bg-green-200 border-black border-[2px] rounded-lg"
           onClick={() => {
             const newrestrauntList = restrauntList.filter(
               (res) => res.info.avgRating > 4.1
@@ -71,7 +73,7 @@ const Body = () => {
           Top Rated
         </button>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap pl-[100px]">
         {filteredRestraunt.map((restraunt) => (
           <Link to={"/restraunts/" + restraunt.info.id} key={restraunt.info.id}>
             <Restrauntcard resData={restraunt} />

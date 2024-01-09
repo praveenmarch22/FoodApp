@@ -9,7 +9,7 @@ class About extends React.Component {
   componentDidMount() {
     this.inter = setInterval(() => {
       console.log("setinterval is called");
-    }, 100);
+    }, 1000);
   }
   componentWillUnmount() {
     clearInterval(this.inter);
