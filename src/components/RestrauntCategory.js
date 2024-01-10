@@ -1,10 +1,8 @@
 import ItemList from "./ItemList";
-import { useState } from "react";
 
-const RestrauntCategory = ({ data }) => {
-  const [showItems, setShowItems] = useState(false);
+const RestrauntCategory = ({ data, showItems, setShowIndex }) => {
   const handler = () => {
-    setShowItems(!showItems);
+    setShowIndex();
   };
   return (
     <div className="w-6/12  text-[18px] bg-gray-100 mx-auto my-2 shadow-md">
@@ -16,9 +14,7 @@ const RestrauntCategory = ({ data }) => {
           {data?.title}({data?.itemCards?.length})
         </span>
         <span
-          className={`transition-transform transform ease-in duration-300 ${
-            showItems ? "rotate-180" : ""
-          }`}
+          className={`ease-in duration-300 ${showItems ? "rotate-180" : ""}`}
         >
           🔽
         </span>
