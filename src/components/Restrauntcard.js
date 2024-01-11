@@ -1,9 +1,13 @@
 import { CDN_URL } from "../utils/constants";
+import userContext from "../utils/context";
+import { useContext } from "react";
 
 const Restrauntcard = (props) => {
   const { resData } = props;
 
   const { cloudinaryImageId, name, cuisines, areaName } = resData?.info;
+
+  const { username } = useContext(userContext);
 
   return (
     <div className="w-[300px] bg-gray-100 p-3 m-3 h-[390px] break-words">
@@ -14,6 +18,7 @@ const Restrauntcard = (props) => {
       <h4 className="font-bold mb-3">{name}</h4>
       <p className=" text-sm ">{cuisines.join(",")}</p>
       <h5>{areaName}</h5>
+      <h2>{username}</h2>
     </div>
   );
 };

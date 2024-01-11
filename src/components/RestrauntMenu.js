@@ -33,7 +33,8 @@ const RestrauntMenu = () => {
       {categories.map((category, index) => (
         <RestrauntCategory
           data={category?.card?.card}
-          showItems={showIndex == index ? true : false}
+          key={index}
+          showItems={showIndex == index && true}
           setShowIndex={() => setShowIndex(index)}
         />
       ))}

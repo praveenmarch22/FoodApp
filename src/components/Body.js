@@ -22,12 +22,13 @@ const Body = () => {
     );
 
     const json = await data.json();
+    console.log(json);
 
     setRestrauntList(
-      json.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestraunt(
-      json.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
