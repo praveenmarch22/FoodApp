@@ -1,6 +1,6 @@
+import { useContext } from "react";
 import { CDN_URL } from "../utils/constants";
 import userContext from "../utils/context";
-import { useContext } from "react";
 
 const Restrauntcard = (props) => {
   const { resData } = props;

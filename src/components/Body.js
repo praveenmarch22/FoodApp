@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Restrauntcard, { withPromotedLabel } from "./Restrauntcard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import userContext from "../utils/context";
 
 const Body = () => {
   const [restrauntList, setRestrauntList] = useState([]);
@@ -31,6 +32,8 @@ const Body = () => {
       json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+  const { setUser, username } = useContext(userContext);
 
   const onlineStatus = useOnlineStatus();
   if (onlineStatus == false) {
@@ -75,6 +78,12 @@ const Body = () => {
         >
           Top Rated
         </button>
+        <input
+          type="text"
+          value={username}
+          className="ml-2 p-2 border border-black"
+          onChange={(e) => setUser(e.target.value)}
+        />
       </div>
       <div className="flex flex-wrap pl-[100px]">
         {filteredRestraunt.map((restraunt) => (
