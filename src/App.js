@@ -9,6 +9,9 @@ import Error from "./components/Error";
 import { Outlet } from "react-router-dom";
 import RestrauntMenu from "./components/RestrauntMenu";
 import userContext from "./utils/context";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
@@ -17,18 +20,20 @@ const AppLayout = () => {
 
   useEffect(() => {
     const data = {
-      user: "sachin",
+      user: "",
     };
     setUser(data.user);
   }, []);
 
   return (
-    <userContext.Provider value={{ username: user, setUser }}>
-      <div className="app">
-        <Header />
-        <Outlet />
-      </div>
-    </userContext.Provider>
+    <Provider store={appStore}>
+      <userContext.Provider value={{ username: user, setUser }}>
+        <div className="app">
+          <Header />
+          <Outlet />
+        </div>
+      </userContext.Provider>
+    </Provider>
   );
 };
 
@@ -60,6 +65,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restraunts/:resId",
         element: <RestrauntMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,
