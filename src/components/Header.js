@@ -13,17 +13,23 @@ const Header = () => {
 
   const cart = useSelector((store) => store.cart.items);
 
-  console.log(cart);
-
   return (
-    <div className="flex justify-between border-b-4">
+    <div className="flex justify-between shadow-lg text-gray-600 ">
       <div className="logo-container">
-        <img className=" w-[140px] " alt="logo" src={LOGO_URL} />
+        <img
+          className=" w-[80px] ml-12 mt-1 mb-1 transition-transform transform-gpu hover:scale-90"
+          alt="logo"
+          src={LOGO_URL}
+        />
       </div>
-      <div className="flex flex-wrap">
-        <ul className="flex items-center ">
+      <div className="flex flex-wrap font-bold ">
+        <ul className="flex items-center  mr-5">
           <li className="px-4">onlineStatus:{onlineStatus ? "💚" : "💝"}</li>
           <li className="px-4">
+            {" "}
+            <Link to={"/search"}>Search</Link>{" "}
+          </li>
+          <li className="px-4 ">
             {" "}
             <Link to={"/"}>Home</Link>{" "}
           </li>
@@ -39,11 +45,10 @@ const Header = () => {
             {" "}
             <Link to={"/grocery"}>Grocery</Link>{" "}
           </li>
-          <li className="px-4">
+          <li className="px-4 flex">
             {" "}
-            <Link to={"/cart"}> Cart-({cart.length} items) </Link>{" "}
+            <Link to={"/cart"}> Cart-({cart.length} items)</Link>{" "}
           </li>
-          <li className="px-4">{username}</li>
           <li className="px-4">
             <button
               className="login"

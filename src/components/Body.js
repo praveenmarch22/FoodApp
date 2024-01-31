@@ -4,6 +4,9 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import userContext from "../utils/context";
+import ItemScroll from "./ItemScroll";
+import Footer from "./Footer";
+import AppStore from "./AppStore";
 
 const Body = () => {
   const [restrauntList, setRestrauntList] = useState([]);
@@ -12,6 +15,8 @@ const Body = () => {
   const [filteredRestraunt, setFilteredRestraunt] = useState([]);
 
   const RestrauntPromoted = withPromotedLabel(Restrauntcard);
+
+  const [cuisine, setCuisine] = useState();
 
   useEffect(() => {
     fetchdata();
@@ -24,12 +29,16 @@ const Body = () => {
 
     const json = await data.json();
 
+    console.log(json);
+
     setRestrauntList(
       json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestraunt(
       json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+
+    setCuisine(json.data?.cards[0]?.card?.card?.imageGridCards?.info);
   };
 
   const { setUser, username } = useContext(userContext);
@@ -43,6 +52,11 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="body">
+      <div className="w-full">
+        <ItemScroll cuisinedata={cuisine} />
+        <div className="h-[2px] w-[80%] bg-slate-200 mx-auto mt-10"></div>
+      </div>
+
       <div className="flex m-5 pl-[500px]">
         <div className="px-4">
           <input
@@ -77,14 +91,8 @@ const Body = () => {
         >
           Top Rated
         </button>
-        <input
-          type="text"
-          value={username}
-          className="ml-2 p-2 border border-black"
-          onChange={(e) => setUser(e.target.value)}
-        />
       </div>
-      <div className="flex flex-wrap pl-[100px]">
+      <div className="flex flex-wrap mx-auto justify-center items-center">
         {filteredRestraunt.map((restraunt) => (
           <Link to={"/restraunts/" + restraunt.info.id} key={restraunt.info.id}>
             {restraunt.info.avgRating > 4.4 ? (
@@ -95,6 +103,8 @@ const Body = () => {
           </Link>
         ))}
       </div>
+      <AppStore />
+      <Footer />
     </div>
   );
 };
