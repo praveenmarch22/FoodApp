@@ -32,20 +32,20 @@ const ItemScroll = (cuisines) => {
         <div className="flex">
           <span>
             <button
-              class="flex items-center space-x-2 px-2 py-2 rounded-full bg-slate-300 mr-2 "
+              className="flex items-center space-x-2 px-2 py-2 rounded-full bg-slate-300 mr-2 "
               onClick={() => handleScroll("left")}
             >
               <svg
-                class="w-4 h-4"
+                className="w-4 h-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M19 12H6M12 5l-7 7 7 7"
                 ></path>
               </svg>
@@ -53,20 +53,20 @@ const ItemScroll = (cuisines) => {
           </span>
           <span>
             <button
-              class="flex items-center space-x-2 px-2 py-2 rounded-full bg-slate-300 "
+              className="flex items-center space-x-2 px-2 py-2 rounded-full bg-slate-300 "
               onClick={() => handleScroll("right")}
             >
               <svg
-                class="w-4 h-4"
+                className="w-4 h-4"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M5 12h14M12 5l7 7-7 7"
                 ></path>
               </svg>
@@ -82,7 +82,7 @@ const ItemScroll = (cuisines) => {
           <img
             key={item.imageId}
             src={IMG_URL + item.imageId}
-            className="w-[470px] h-full mx-3"
+            className="w-[470px] h-full mx-3 cursor-pointer"
             alt={`Cuisine ${item.imageId}`}
           />
         ))}

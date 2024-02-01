@@ -13,27 +13,36 @@ import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
 import Search from "./components/Search";
+import searchContext from "./utils/context";
+import { SWIGGY_API } from "./utils/constants";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
-  const [user, setUser] = useState();
+  const [restraunts, setRestraunts] = useState([]);
 
   useEffect(() => {
-    const data = {
-      user: "",
-    };
-    setUser(data.user);
+    fetchdata();
   }, []);
+
+  const fetchdata = async () => {
+    const data = await fetch(SWIGGY_API);
+
+    const json = await data.json();
+
+    setRestraunts(
+      json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+  };
 
   return (
     <Provider store={appStore}>
-      <userContext.Provider value={{ username: user, setUser }}>
+      <searchContext.Provider value={restraunts}>
         <div className="app">
           <Header />
           <Outlet />
         </div>
-      </userContext.Provider>
+      </searchContext.Provider>
     </Provider>
   );
 };

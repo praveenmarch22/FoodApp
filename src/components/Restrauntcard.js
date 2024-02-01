@@ -37,8 +37,7 @@ const Restrauntcard = (props) => {
             fill="green"
             role="img"
             aria-hidden="true"
-            strokeColor="rgba(2, 6, 12, 0.92)"
-            fillColor="rgba(2, 6, 12, 0.92)"
+            stroke-color="rgba(2, 6, 12, 0.92)"
           >
             <circle cx="10" cy="10" r="9" fill="green"></circle>
             <path

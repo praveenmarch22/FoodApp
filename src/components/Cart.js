@@ -11,16 +11,18 @@ const Cart = () => {
   };
 
   return (
-    <div className="flex-col ">
+    <div className="flex-col w-full ">
       <p className=" text-center m-2 p-2 text-xl font-bold ">Cart</p>
-      <p
-        className=" text-center m-2 p-2 text-lg cursor-pointer"
-        onClick={handleClearCart}
-      >
-        Clear
-      </p>
+      <div className="w-[80%] items-end">
+        <p
+          className=" m-2 p-2 text-lg cursor-pointer"
+          onClick={handleClearCart}
+        >
+          Clear
+        </p>
+      </div>
       <div className="w-6/12 m-1 p-1 mx-auto">
-        <ItemList items={cartitems} />
+        <CartItems items={cartitems} />
       </div>
     </div>
   );
