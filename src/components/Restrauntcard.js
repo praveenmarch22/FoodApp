@@ -29,7 +29,7 @@ const Restrauntcard = (props) => {
         <h4 className="font-bold mb-0 mt-3 overflow-hidden overflow-ellipsis whitespace-nowrap text-xl ml-2">
           {name}
         </h4>
-        <p className="ml-2 flex">
+        <div className="ml-2 flex">
           <svg
             width="20"
             height="20"
@@ -48,7 +48,7 @@ const Restrauntcard = (props) => {
           <p className="ml-1">
             {avgRatingString} {resData?.info?.sla?.slaString}
           </p>
-        </p>
+        </div>
         <p className="text-sm overflow-hidden overflow-ellipsis whitespace-nowrap ml-2 font-sans font-light">
           {cuisines.join(",")}
         </p>

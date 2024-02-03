@@ -8,7 +8,7 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import { Outlet } from "react-router-dom";
 import RestrauntMenu from "./components/RestrauntMenu";
-import userContext from "./utils/context";
+
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
