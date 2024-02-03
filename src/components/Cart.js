@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import ItemList from "./ItemList";
+
 import { clearCart } from "../utils/cartSlice";
+import ItemList from "./ItemList";
 
 const Cart = () => {
-  const cartitems = useSelector((store) => store.cart.items);
+  const items = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
 
   const handleClearCart = () => {
@@ -13,7 +14,7 @@ const Cart = () => {
   return (
     <div className="flex-col w-full ">
       <p className=" text-center m-2 p-2 text-xl font-bold ">Cart</p>
-      <div className="w-[80%] items-end">
+      <div className="w-[50%] text-end mx-auto font-bold">
         <p
           className=" m-2 p-2 text-lg cursor-pointer"
           onClick={handleClearCart}
@@ -22,7 +23,7 @@ const Cart = () => {
         </p>
       </div>
       <div className="w-6/12 m-1 p-1 mx-auto">
-        <CartItems items={cartitems} />
+        <ItemList items={items} />
       </div>
     </div>
   );
