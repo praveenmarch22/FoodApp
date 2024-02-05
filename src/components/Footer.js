@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="flex">
           <img src={LOGO_URL} className="w-[60px] rounded-full " />
           <p className="text-gray-200 font-extrabold text-2xl ml-3 mt-3">
-            Swiggy
+            FoodApp
           </p>
         </div>
         <div className=" ">
