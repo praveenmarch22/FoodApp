@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import searchContext from "../utils/context";
 import Restrauntcard, { withPromotedLabel } from "./Restrauntcard";
 import { Link } from "react-router-dom";
-import { withPromotedLabel } from "./Restrauntcard";
 
 const Search = () => {
   const restraunts = useContext(searchContext);
@@ -11,6 +10,8 @@ const Search = () => {
 
   const RestrauntPromoted = withPromotedLabel(Restrauntcard);
 
+  console.log(filteredList);
+
   return (
     <div>
       <div className="w-full  flex justify-center items-center">
@@ -18,6 +19,7 @@ const Search = () => {
           type="text"
           placeholder="Search for restraunts or food..."
           className="my-4 p-4 border-b-2 border-black w-8/12 focus:border-b-2 focus:outline-none "
+          data-testid="searchid"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value.toLowerCase());

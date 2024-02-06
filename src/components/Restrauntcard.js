@@ -4,6 +4,7 @@ import userContext from "../utils/context";
 
 const Restrauntcard = (props) => {
   const { resData } = props;
+  console.log(resData);
 
   const { cloudinaryImageId, name, cuisines, areaName, avgRatingString } =
     resData?.info;
@@ -11,7 +12,10 @@ const Restrauntcard = (props) => {
   const { username } = useContext(userContext);
 
   return (
-    <div className="w-[280px]  p-3 m-3 h-[300px] relative transition-transform transform-gpu hover:scale-90">
+    <div
+      className="w-[280px]  p-3 m-3 h-[300px] relative transition-transform transform-gpu hover:scale-90"
+      data-testid="rescard"
+    >
       {resData?.info?.aggregatedDiscountInfoV3?.header ? (
         <label className="absolute bg-transparent text-xl text-white p-2 rounded-lg w-[256px] font-extrabold bg-gradient-to-t from-black top-[140px]">
           {resData?.info?.aggregatedDiscountInfoV3?.header}{" "}
