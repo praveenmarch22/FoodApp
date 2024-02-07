@@ -31,9 +31,6 @@ const Body = () => {
     );
 
     const json = await data.json();
-    console.log(
-      json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
 
     setTitle(json?.data?.cards[2]?.card?.card?.title);
 
@@ -49,7 +46,9 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus();
   if (onlineStatus == false) {
-    return <h1>Looks like you are offline</h1>;
+    return (
+      <h1 className="font-bold text-3xl mx-auto">Looks like you are offline</h1>
+    );
   }
 
   return restrauntList.length === 0 ? (

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
@@ -9,7 +9,7 @@ const Header = () => {
   const [loginButton, setLoginButton] = useState("Login");
   const onlineStatus = useOnlineStatus();
 
-  const cart = useSelector((store) => store.cart.items);
+  const cartTotalItems = useSelector((store) => store.cart.cartTotalQuantity);
 
   return (
     <div className="flex justify-between shadow-lg text-gray-600 ">
@@ -45,7 +45,7 @@ const Header = () => {
           </li>
           <li className="px-4 flex">
             {" "}
-            <Link to={"/cart"}> Cart-({cart.length} items)</Link>{" "}
+            <Link to={"/cart"}> Cart-({cartTotalItems} items)</Link>{" "}
           </li>
           <li className="px-4">
             <button

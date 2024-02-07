@@ -4,6 +4,7 @@ import { addItem } from "../utils/cartSlice.js";
 
 const ItemList = (itemss) => {
   const { items } = itemss;
+  console.log(items);
 
   const dispatch = useDispatch();
 
@@ -12,7 +13,7 @@ const ItemList = (itemss) => {
   };
 
   return (
-    <div className="">
+    <div>
       {items.map((item) => (
         <div
           key={item.card.info.id}
@@ -42,8 +43,8 @@ const ItemList = (itemss) => {
               </button>
             ) : (
               <button
-                className="bg-black text-white px-2 py-1 mr-[30px] rounded-lg"
-                onclick={() => addItemToCart(item)}
+                className="bg-black text-white px-2 py-1 mr-[30px] rounded-lg z-40"
+                onClick={() => addItemToCart(item)}
               >
                 Add
               </button>

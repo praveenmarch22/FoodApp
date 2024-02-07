@@ -4,7 +4,6 @@ import userContext from "../utils/context";
 
 const Restrauntcard = (props) => {
   const { resData } = props;
-  console.log(resData);
 
   const { cloudinaryImageId, name, cuisines, areaName, avgRatingString } =
     resData?.info;
