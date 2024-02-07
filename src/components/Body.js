@@ -9,7 +9,7 @@ import AppStore from "./AppStore";
 import searchContext from "../utils/context";
 
 const Body = () => {
-  const restaurants = useContext(searchContext);
+  //const restaurants = useContext(searchContext);
 
   const [restrauntList, setRestrauntList] = useState([]);
 
