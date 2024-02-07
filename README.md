@@ -1,3 +1,7 @@
+Install the cors plugin tot he chrome and use the applink
+
+
+
 FoodApp seamlessly integrates Swiggy’s live API, ensuring real-time updates on menus, prices.
 I Have used TailwindCSS for better styling the foodapp.
 I have implemented Optimized Search Functionality to find your favorite dishes effortlessly.
