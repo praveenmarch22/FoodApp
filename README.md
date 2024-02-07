@@ -1,4 +1,4 @@
-Install the cors plugin tot he chrome and use the applink
+Install the cors plugin to the chrome and use the applink
 
 
 
