@@ -8,8 +8,6 @@ const Restrauntcard = (props) => {
   const { cloudinaryImageId, name, cuisines, areaName, avgRatingString } =
     resData?.info;
 
-  const { username } = useContext(userContext);
-
   return (
     <div
       className="w-[280px]  p-3 m-3 h-[300px] relative transition-transform transform-gpu hover:scale-90"

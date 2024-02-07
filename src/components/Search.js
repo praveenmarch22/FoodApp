@@ -10,8 +10,6 @@ const Search = () => {
 
   const RestrauntPromoted = withPromotedLabel(Restrauntcard);
 
-  console.log(filteredList);
-
   return (
     <div>
       <div className="w-full  flex justify-center items-center">
