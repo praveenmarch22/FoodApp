@@ -24,7 +24,7 @@ const AppLayout = () => {
 
   useEffect(() => {
     fetchdata();
-  });
+  }, []);
 
   const fetchdata = async () => {
     const data = await fetch(SWIGGY_API);

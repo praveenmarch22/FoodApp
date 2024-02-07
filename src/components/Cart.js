@@ -17,7 +17,7 @@ const Cart = () => {
 
   useEffect(() => {
     dispatch(getTotals());
-  });
+  }, [cart, dispatch]);
 
   const handleClearCart = () => {
     dispatch(clearCart());
