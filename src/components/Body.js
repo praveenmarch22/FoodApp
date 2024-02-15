@@ -54,15 +54,15 @@ const Body = () => {
   return restrauntList.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
+    <div>
       <div className="w-full">
         <ItemScroll cuisinedata={cuisine} />
         <div className="h-[2px] w-[80%] bg-slate-200 mx-auto mt-10"></div>
       </div>
       <div className="font-bold text-2xl mt-6 w-[80%] mx-auto">{title}</div>
-      <div className="flex m-5 items-start w-[80%] mx-auto">
+      <div className="flex m-5 items-start w-[80%] mx-auto flex-wrap">
         <button
-          className="px-4  border-black border-[1px] rounded-full py-1 ml-3"
+          className="px-4  border-black border-[1px] rounded-full py-1 ml-3 my-1"
           onClick={() => {
             const newrestrauntList = restrauntList;
             setFilteredRestraunt(newrestrauntList);
@@ -71,7 +71,7 @@ const Body = () => {
           No Filter
         </button>
         <button
-          className="px-4  border-black border-[1px] rounded-full py-1 ml-3"
+          className="px-4  border-black border-[1px] rounded-full py-1 ml-3 my-1"
           onClick={() => {
             const newrestrauntList = restrauntList.filter(
               (res) => res.info.avgRating > 4.0
@@ -82,7 +82,7 @@ const Body = () => {
           Ratings 4.0+
         </button>
         <button
-          className="px-4  border-black border-[0.5px] rounded-full py-1 ml-3"
+          className="px-4  border-black border-[0.5px] rounded-full py-1 ml-3 my-1"
           onClick={() => {
             const newrestrauntList = restrauntList.filter(
               (res) => res.info?.sla?.lastMileTravel < 2.0
@@ -93,7 +93,7 @@ const Body = () => {
           Fast Delivery
         </button>
         <button
-          className="px-4  border-black border-[1px] rounded-full py-1 ml-3"
+          className="px-4  border-black border-[1px] rounded-full py-1 ml-3 my-1"
           onClick={() => {
             const newrestrauntList = restrauntList.filter(
               (res) => parseInt(res.info.costForTwo.substring(1, 4)) < 300
@@ -104,7 +104,7 @@ const Body = () => {
           Less than Rs. 300
         </button>
         <button
-          className="px-4  border-black border-[1px] rounded-full py-1 ml-3"
+          className="px-4  border-black border-[1px] rounded-full py-1 ml-3 my-1"
           onClick={() => {
             const newrestrauntList = restrauntList.filter(
               (res) =>
@@ -117,7 +117,7 @@ const Body = () => {
           Rs. 300-Rs. 600
         </button>
         <button
-          className="px-4  border-black border-[1px] rounded-full py-1 ml-3"
+          className="px-4  border-black border-[1px] rounded-full py-1 ml-3 my-1"
           onClick={() => {
             const newrestrauntList = restrauntList.filter(
               (res) =>

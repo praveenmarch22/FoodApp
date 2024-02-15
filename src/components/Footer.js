@@ -2,7 +2,7 @@ import { LOGO_URL } from "../utils/constants";
 
 const Footer = () => {
   return (
-    <div className="w-full bg-customColor h-[500px] flex justify-center pt-9">
+    <div className="w-full bg-customColor flex-grow flex flex-wrap justify-center pt-9">
       <div className=" m-4">
         <div className="flex">
           <img src={LOGO_URL} className="w-[60px] rounded-full " />
